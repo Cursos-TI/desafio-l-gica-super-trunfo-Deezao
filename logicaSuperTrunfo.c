@@ -7,7 +7,7 @@
 
 int main() {
     //variaveis que entrarao
-    char estado[25], estado2[25];
+    char estado[3], estado2[3];
     char nomecidade[25], nomecidade2[25];
     unsigned long int populacao, populacao2;  
     double area, area2;
@@ -19,9 +19,9 @@ int main() {
     
     //declarar as caracteristicas das cartas:
     printf("Digite o nome do estado 01: \n");
-    scanf("%2s", estado);
+    scanf("%3s", estado);
     printf("Digite o nome do estado 02: \n");
-    scanf("%2s", estado2);
+    scanf("%3s", estado2);
     
     printf("Digite o nome da cidade 01:   \n");
     scanf(  " %25s", nomecidade);
@@ -51,7 +51,7 @@ int main() {
     //apos usar o scanf, executar:
     float densidade_pop_c1;
         if(area != 0.0f){
-            densidade_pop_c1 = (float)populacao / area;
+            densidade_pop_c1 = (float) populacao / area;
         }else {
             printf("Atencao: Area da cidade 01 é zero. Densidade populacional igual a 0\n");
             densidade_pop_c1 = 0.0f;
@@ -59,7 +59,7 @@ int main() {
     
     float densidade_pop_c2;
         if(area2 != 0.0f){
-            densidade_pop_c2 = (float)populacao2 / area2;
+            densidade_pop_c2 = (float) populacao2 / area2;
         }else {
         printf("Atencao: Area da cidade 02 é zero. Densidade populacional igual a 0\n");
              densidade_pop_c2 = 0.0f;
@@ -81,9 +81,22 @@ int main() {
             pibpercapita2 = 0.0f;
         }
     
-    superpoder = (double) populacao + pontosturisticos + area + pib + densidade_pop_c1 + (1.0 / densidade_pop_c1);
-    superpoder2 = (double) populacao2 + pontosturisticos2 + area2 + pib2 + densidade_pop_c2 + (1.0 / densidade_pop_c2);
+    double pib_total_reais_c1 = pib * 1000000000.0;
+    double pib_total_reais_c2 = pib2 * 1000000000.0;
 
+    superpoder = (double) populacao + pontosturisticos + area + pib_total_reais_c1 + (1.0 / densidade_pop_c1);
+    if (densidade_pop_c1 != 0.0f){
+        superpoder += (1.0 / densidade_pop_c1);
+    }else {
+        printf("Aviso: Densidade populacional da cidade 01 é zero. Inverso da densidade não adicionado ao Super Poder.\\n");
+    }
+
+    superpoder2 = (double) populacao2 + pontosturisticos2 + area2 + pib_total_reais_c2 + (1.0 / densidade_pop_c2);
+    if (densidade_pop_c1 != 0.0f){
+        superpoder += (1.0 / densidade_pop_c1);
+    }else {
+        printf("Aviso: Densidade populacional da cidade 01 é zero. Inverso da densidade não adicionado ao Super Poder.\\n");
+    }
 
 
 
@@ -94,7 +107,7 @@ int main() {
     printf("Nome cidade: %s\n", nomecidade);
     printf("Populacao carta : %lu\n",populacao);
     printf("Area : %.2fkm²\n", area);
-    printf("PIB : %.3f\n", pib);
+    printf("PIB : %.2lf\n", pib);
     printf("Numero de pontos turisticos : %d\n", pontosturisticos);
     printf("Densidade populacional: %.2f\n", (float) densidade_pop_c1);
     printf("PIB per capita: %.2lf\n", (double) pibpercapita);
@@ -106,7 +119,7 @@ int main() {
     printf("Nome cidade: %s\n", nomecidade2);
     printf("Populacao: %lu\n",populacao2);
     printf("Area: %.2fkm²\n", area2);
-    printf("PIB: %.2f\n", pib2);
+    printf("PIB: %.2lf\n", pib2);
     printf("Numero de pontos turisticos: %d\n", pontosturisticos2);
     printf("Densidade populacional: %.2f\n", (float) densidade_pop_c2);
     printf("PIB per capita: %.2lf\n", (double) pibpercapita2);
