@@ -49,6 +49,10 @@ int main() {
     scanf("%lf", &pib2);
 
     //apos usar o scanf, executar:
+    double superpoder2 = 0.0;
+    double superpoder = 0.0;
+    
+    
     float densidade_pop_c1;
         if(area != 0.0f){
             densidade_pop_c1 = (float) populacao / area;
@@ -90,7 +94,8 @@ int main() {
     }else {
         printf("Aviso: Densidade populacional da cidade 01 e zero. Inverso da densidade nao adicionado ao Super Poder.\\n");
     }
-    superpoder = (double) populacao + pontosturisticos + area + pib_total_reais_c1 + termo_inverso_densidade_c1;
+    
+    
 
     double termo_inverso_densidade_c2 = 0.0;
     if (densidade_pop_c2 != 0.0f){
@@ -98,6 +103,8 @@ int main() {
     }else {
         printf("Aviso: Densidade populacional da cidade 02 e zero. Inverso da densidade nao adicionado ao Super Poder.\\n");
     }
+    
+    superpoder = (double) populacao + pontosturisticos + area + pib_total_reais_c1 + termo_inverso_densidade_c1;
     superpoder2 = (double) populacao2 + pontosturisticos2 + area2 + pib_total_reais_c2 + termo_inverso_densidade_c2;
     
 
