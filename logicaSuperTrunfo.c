@@ -69,7 +69,7 @@ int main() {
         if (populacao != 0){
             pibpercapita = (float) pib * 1000000000.0f / populacao;
         } else{
-            printf("Atencao: Populacao da cidade 01 é zero. PIB per capita igual a 0\\n");
+            printf("Atencao: Populacao da cidade 01 é zero. PIB per capita igual a 0\n");
             pibpercapita = 0.0f;
         }
 
@@ -77,28 +77,28 @@ int main() {
         if (populacao2 != 0){
             pibpercapita2 = (float) pib2 * 1000000000.0f / populacao2;
         } else{
-            printf("Atencao: Populacao da cidade 01 é zero. PIB per capita igual a 0\\n");
+            printf("Atencao: Populacao da cidade 01 é zero. PIB per capita igual a 0\n");
             pibpercapita2 = 0.0f;
         }
     
     double pib_total_reais_c1 = pib * 1000000000.0;
     double pib_total_reais_c2 = pib2 * 1000000000.0;
 
-    double superpoder
+    double termo_inverso_densidade_c1 = 0.0;
     if (densidade_pop_c1 != 0.0f){
-        superpoder += (1.0 / densidade_pop_c1);
+        termo_inverso_densidade_c1 = (1.0 / densidade_pop_c1);
     }else {
-        printf("Aviso: Densidade populacional da cidade 01 é zero. Inverso da densidade não adicionado ao Super Poder.\\n");
+        printf("Aviso: Densidade populacional da cidade 01 e zero. Inverso da densidade nao adicionado ao Super Poder.\\n");
     }
-    superpoder = (double) populacao + pontosturisticos + area + pib_total_reais_c1 + (1.0 / densidade_pop_c1);
-    
-    double superpoder2
+    superpoder = (double) populacao + pontosturisticos + area + pib_total_reais_c1 + termo_inverso_densidade_c1;
+
+    double termo_inverso_densidade_c2 = 0.0;
     if (densidade_pop_c2 != 0.0f){
-        superpoder += (1.0 / densidade_pop_c2);
+        termo_inverso_densidade_c2 = (1.0 / densidade_pop_c2);
     }else {
-        printf("Aviso: Densidade populacional da cidade 01 é zero. Inverso da densidade não adicionado ao Super Poder.\\n");
+        printf("Aviso: Densidade populacional da cidade 02 e zero. Inverso da densidade nao adicionado ao Super Poder.\\n");
     }
-    superpoder2 = (double) populacao2 + pontosturisticos2 + area2 + pib_total_reais_c2 + (1.0 / densidade_pop_c2);
+    superpoder2 = (double) populacao2 + pontosturisticos2 + area2 + pib_total_reais_c2 + termo_inverso_densidade_c2;
     
 
 
