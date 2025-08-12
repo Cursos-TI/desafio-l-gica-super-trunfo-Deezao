@@ -84,19 +84,22 @@ int main() {
     double pib_total_reais_c1 = pib * 1000000000.0;
     double pib_total_reais_c2 = pib2 * 1000000000.0;
 
+    double superpoder
+    if (densidade_pop_c1 != 0.0f){
+        superpoder += (1.0 / densidade_pop_c1);
+    }else {
+        printf("Aviso: Densidade populacional da cidade 01 é zero. Inverso da densidade não adicionado ao Super Poder.\\n");
+    }
     superpoder = (double) populacao + pontosturisticos + area + pib_total_reais_c1 + (1.0 / densidade_pop_c1);
-    if (densidade_pop_c1 != 0.0f){
-        superpoder += (1.0 / densidade_pop_c1);
+    
+    double superpoder2
+    if (densidade_pop_c2 != 0.0f){
+        superpoder += (1.0 / densidade_pop_c2);
     }else {
         printf("Aviso: Densidade populacional da cidade 01 é zero. Inverso da densidade não adicionado ao Super Poder.\\n");
     }
-
     superpoder2 = (double) populacao2 + pontosturisticos2 + area2 + pib_total_reais_c2 + (1.0 / densidade_pop_c2);
-    if (densidade_pop_c1 != 0.0f){
-        superpoder += (1.0 / densidade_pop_c1);
-    }else {
-        printf("Aviso: Densidade populacional da cidade 01 é zero. Inverso da densidade não adicionado ao Super Poder.\\n");
-    }
+    
 
 
 
@@ -206,9 +209,9 @@ int main() {
         printf("Carta 1 (%s): %.2lf\n", nomecidade, pibpercapita);
         printf("Carta 2 (%s): %.2lf\n", nomecidade2, pibpercapita2);
         if (pibpercapita > pibpercapita2)
-            printf(">> Carta 1 venceu!\n");
+            printf("*** Carta 1 venceu! ***\n");
         else if (pibpercapita2 > pibpercapita)
-            printf(">> Carta 2 venceu!\n");
+            printf("*** Carta 2 venceu! ***\n");
         else
             printf("*** Empate! ***\n");
         break;
