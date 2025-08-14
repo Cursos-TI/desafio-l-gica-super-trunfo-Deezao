@@ -7,9 +7,9 @@
 
 int main() {
     //variaveis que entrarao
-    char codigo1[4], codigo2[4];
-    char estado[4], estado2[4];
-    char nomecidade[25], nomecidade2[25];
+    char codigo1[10], codigo2[10];
+    char estado[30], estado2[30];
+    char nomecidade[50], nomecidade2[50];
     unsigned long int populacao, populacao2;  
     double area, area2;
     double pib, pib2;
@@ -20,19 +20,19 @@ int main() {
     
     //declarar as caracteristicas das cartas:
     printf("Digite o nome do codigo da carta 01: \n");
-    scanf("%4s", codigo1);
+    scanf(" %9[^\n]", codigo1);
     printf("Digite o nome do codigo da carta 02: \n");
-    scanf("%4s", codigo2);
+    scanf(" %9[^\n]", codigo2);
 
     printf("Digite o nome do estado 01: \n");
-    scanf(" %4s", estado);
+    scanf(" %29[^\n]", estado);
     printf("Digite o nome do estado 02: \n");
-    scanf(" %4s", estado2);
+    scanf(" %29[^\n]", estado2);
     
     printf("Digite o nome da cidade 01:   \n");
-    scanf(  " %25[^\n]", nomecidade);
+    scanf(  " %49[^\n]", nomecidade);
     printf("Digite o nome da cidade 02:   \n");
-    scanf(  " %25[^\n]", nomecidade2);
+    scanf(  " %49[^\n]", nomecidade2);
 
     printf("Digite a populacao 01: \n");
     scanf("%lu", &populacao);
@@ -72,19 +72,19 @@ int main() {
              densidade_pop_c2 = 0.0f;
         }
     
-    double pibpercapita;
+    double pibpercapita1;
         if (populacao != 0){
-            pibpercapita = (float) pib * 1000000000.0f / populacao;
+            pibpercapita1 = (float) pib * 1000000000.0f / populacao;
         } else{
             printf("Atencao: Populacao da cidade 01 é zero. PIB per capita igual a 0\n");
-            pibpercapita = 0.0f;
+            pibpercapita1 = 0.0f;
         }
 
     double pibpercapita2;
         if (populacao2 != 0){
             pibpercapita2 = (float) pib2 * 1000000000.0f / populacao2;
         } else{
-            printf("Atencao: Populacao da cidade 01 é zero. PIB per capita igual a 0\n");
+            printf("Atencao: Populacao da cidade 02 é zero. PIB per capita igual a 0\n");
             pibpercapita2 = 0.0f;
         }
     
@@ -109,7 +109,7 @@ int main() {
     }
     
     double superpoder = 0.0;
-    superpoder = (double) populacao + area + pib + (double) pontosturisticos + pibpercapita + termo_inverso_densidade_c1;
+    superpoder = (double) populacao + area + pib + (double) pontosturisticos + pibpercapita1 + termo_inverso_densidade_c1;
     double superpoder2 = 0.0;
     superpoder2 = (double) populacao2 + area2 + pib2 + (double) pontosturisticos2 + pibpercapita2 + termo_inverso_densidade_c2;
     
@@ -126,7 +126,7 @@ int main() {
     printf("PIB : %.2lf\n", pib);
     printf("Numero de pontos turisticos : %d\n", pontosturisticos);
     printf("Densidade populacional: %.2f\n", (float) densidade_pop_c1);
-    printf("PIB per capita: %.2lf\n", (double) pibpercapita);
+    printf("PIB per capita: %.2lf\n", (double) pibpercapita1);
     printf("SuperPoder: %.2lf     \n",  superpoder);
     
     //CartaN2
@@ -223,11 +223,11 @@ int main() {
 
     case 6: // PIB per capita
         printf("\nPIB per capita:\n");
-        printf("Carta 1 (%s): %.2lf\n", nomecidade, pibpercapita);
+        printf("Carta 1 (%s): %.2lf\n", nomecidade, pibpercapita1);
         printf("Carta 2 (%s): %.2lf\n", nomecidade2, pibpercapita2);
-        if (pibpercapita > pibpercapita2){
+        if (pibpercapita1 > pibpercapita2){
             printf("*** Carta 1 venceu! ***\n"); atributo1 = 1;}
-        else if (pibpercapita2 > pibpercapita){
+        else if (pibpercapita2 > pibpercapita1){
             printf("*** Carta 2 venceu! ***\n"); atributo1 = 2;}
         else{
             printf("*** Empate! ***\n"); atributo1 = 0;}
@@ -265,7 +265,9 @@ int escolha2;
     scanf("%d", &escolha2);
     if (escolha2 == escolha){
         printf("Voce ja escolheu a mesma opcao no primeiro atributo.!\n");
-    } 
+    } else if (escolha2 < 1 || escolha2 > 7){
+        printf("Opcao invalida! Por favor escolha um numero entre 1 a 7.\n");
+    } while (escolha2 == escolha || escolha2 < 1 || escolha2 > 7);
     
     
     printf("\nResultado:\n");
@@ -335,11 +337,11 @@ switch (escolha2) {
 
     case 6: // PIB per capita
         printf("\nPIB per capita:\n");
-        printf("Carta 1 (%s): %.2lf\n", nomecidade, pibpercapita);
+        printf("Carta 1 (%s): %.2lf\n", nomecidade, pibpercapita1);
         printf("Carta 2 (%s): %.2lf\n", nomecidade2, pibpercapita2);
-        if (pibpercapita > pibpercapita2){
+        if (pibpercapita1 > pibpercapita2){
             printf("*** Carta 1 venceu! ***\n"); atributo2 = 1;}
-        else if (pibpercapita2 > pibpercapita){
+        else if (pibpercapita2 > pibpercapita1){
             printf("*** Carta 2 venceu! ***\n"); atributo2 = 2;}
         else{
             printf("*** Empate! ***\n"); atributo2 = 0;}
