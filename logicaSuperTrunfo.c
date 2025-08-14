@@ -116,8 +116,9 @@ int main() {
 
 
 
-
+    
     //Carta N1
+    printf("\n");
     printf("Carta N1\n");
     printf("Estado: %s\n", estado);
     printf("Nome cidade: %s\n", nomecidade);
@@ -128,6 +129,7 @@ int main() {
     printf("Densidade populacional: %.2f\n", (float) densidade_pop_c1);
     printf("PIB per capita: %.2lf\n", (double) pibpercapita1);
     printf("SuperPoder: %.2lf     \n",  superpoder);
+    printf("\n");
     
     //CartaN2
     printf("Carta N2\n");
@@ -140,9 +142,11 @@ int main() {
     printf("Densidade populacional: %.2f\n", (float) densidade_pop_c2);
     printf("PIB per capita: %.2lf\n", (double) pibpercapita2);
     printf("SuperPoder: %.2lf   \n", superpoder2);
+    printf("\n");
     
     //Ler qual a carta vencedora, na respectiva propriedade:
      int escolha;
+
     printf("\nEscolha o primeiro atributo para comparar:\n");
     printf("1 - População\n");
     printf("2 - Área\n");
@@ -253,7 +257,8 @@ int main() {
 // Escolha do Segundo atributo
     
 int escolha2;
-    printf("\nEscolha o primeiro atributo para comparar:\n");
+   
+    printf("\nEscolha o segundo atributo para comparar:\n");
     printf("1 - População\n");
     printf("2 - Área\n");
     printf("3 - PIB\n");
@@ -267,7 +272,7 @@ int escolha2;
         printf("Voce ja escolheu a mesma opcao no primeiro atributo.!\n");
     } else if (escolha2 < 1 || escolha2 > 7){
         printf("Opcao invalida! Por favor escolha um numero entre 1 a 7.\n");
-    } while (escolha2 == escolha || escolha2 < 1 || escolha2 > 7);
+    }
     
     
     printf("\nResultado:\n");
