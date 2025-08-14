@@ -7,6 +7,7 @@
 
 int main() {
     //variaveis que entrarao
+    char codigo1[4], codigo2[4];
     char estado[4], estado2[4];
     char nomecidade[25], nomecidade2[25];
     unsigned long int populacao, populacao2;  
@@ -18,10 +19,15 @@ int main() {
     
     
     //declarar as caracteristicas das cartas:
+    printf("Digite o nome do codigo da carta 01: \n");
+    scanf("%4s", codigo1);
+    printf("Digite o nome do codigo da carta 02: \n");
+    scanf("%4s", codigo2);
+
     printf("Digite o nome do estado 01: \n");
-    scanf("%4s", estado);
+    scanf(" %4s", estado);
     printf("Digite o nome do estado 02: \n");
-    scanf("%4s", estado2);
+    scanf(" %4s", estado2);
     
     printf("Digite o nome da cidade 01:   \n");
     scanf(  " %25[^\n]", nomecidade);
@@ -49,8 +55,6 @@ int main() {
     scanf("%lf", &pib2);
 
     //apos usar o scanf, executar:
-    
-    
     
     float densidade_pop_c1;
         if(area != 0.0f){
@@ -84,6 +88,7 @@ int main() {
             pibpercapita2 = 0.0f;
         }
     
+        //variaveis novas
     double pib_total_reais_c1 = pib * 1000000000.0;
     double pib_total_reais_c2 = pib2 * 1000000000.0;
 
@@ -102,10 +107,11 @@ int main() {
     }else {
         printf("Aviso: Densidade populacional da cidade 02 e zero. Inverso da densidade nao adicionado ao Super Poder.\n");
     }
+    
     double superpoder = 0.0;
-    superpoder = (double) populacao + pontosturisticos + area + pib_total_reais_c1 + termo_inverso_densidade_c1;
+    superpoder = (double) populacao + area + pib + (double) pontosturisticos + pibpercapita + termo_inverso_densidade_c1;
     double superpoder2 = 0.0;
-    superpoder2 = (double) populacao2 + pontosturisticos2 + area2 + pib_total_reais_c2 + termo_inverso_densidade_c2;
+    superpoder2 = (double) populacao2 + area2 + pib2 + (double) pontosturisticos2 + pibpercapita2 + termo_inverso_densidade_c2;
     
 
 
@@ -245,7 +251,7 @@ int main() {
 }
 
 // Escolha do Segundo atributo
-
+    
 int escolha2;
     printf("\nEscolha o primeiro atributo para comparar:\n");
     printf("1 - População\n");
@@ -259,11 +265,12 @@ int escolha2;
     scanf("%d", &escolha2);
     if (escolha2 == escolha){
         printf("Voce ja escolheu a mesma opcao no primeiro atributo.!\n");
-    } while (escolha2 == escolha);
+    } 
     
     
     printf("\nResultado:\n");
-
+    
+    int atributo2 = 0;
     
 switch (escolha2) {
     case 1: // População
@@ -271,11 +278,11 @@ switch (escolha2) {
         printf("Carta 1 (%s): %lu\n", nomecidade, populacao);
         printf("Carta 2 (%s): %lu\n", nomecidade2, populacao2);
         if (populacao > populacao2){
-            printf("*** Carta 1 venceu! ***\n"); atributo1 = 1;}
+            printf("*** Carta 1 venceu! ***\n"); atributo2 = 1;}
         else if (populacao2 > populacao){
-            printf("*** Carta 2 venceu! ***\n"); atributo1 = 2;}
+            printf("*** Carta 2 venceu! ***\n"); atributo2 = 2;}
         else {
-            printf("*** Empate! ***\n"); atributo1 = 0;}
+            printf("*** Empate! ***\n"); atributo2 = 0;}
         break;
 
     case 2: // Área
@@ -283,11 +290,11 @@ switch (escolha2) {
         printf("Carta 1 (%s): %.2lf km²\n", nomecidade, area);
         printf("Carta 2 (%s): %.2lf km²\n", nomecidade2, area2);
         if (area > area2){
-            printf("*** Carta 1 venceu! ***\n"); atributo1 = 1;}
+            printf("*** Carta 1 venceu! ***\n"); atributo2 = 1;}
         else if (area2 > area){
-            printf("*** Carta 2 venceu! ***\n"); atributo1 = 2;}
+            printf("*** Carta 2 venceu! ***\n"); atributo2 = 2;}
         else{
-            printf("*** Empate! ***\n"); atributo1 = 0;}
+            printf("*** Empate! ***\n"); atributo2 = 0;}
         break;
 
     case 3: // PIB
@@ -295,11 +302,11 @@ switch (escolha2) {
         printf("Carta 1 (%s): %.2lf\n", nomecidade, pib);
         printf("Carta 2 (%s): %.2lf\n", nomecidade2, pib2);
         if (pib > pib2){
-            printf("*** Carta 1 venceu! ***\n"); atributo1 = 1;}
+            printf("*** Carta 1 venceu! ***\n"); atributo2 = 1;}
         else if (pib2 > pib){
-            printf("*** Carta 2 venceu! ***\n"); atributo1 = 2;}
+            printf("*** Carta 2 venceu! ***\n"); atributo2 = 2;}
         else{
-            printf("*** Empate! ***\n"); atributo1 = 0;}
+            printf("*** Empate! ***\n"); atributo2 = 0;}
         break;
 
     case 4: // Pontos turísticos
@@ -307,11 +314,11 @@ switch (escolha2) {
         printf("Carta 1 (%s): %d\n", nomecidade, pontosturisticos);
         printf("Carta 2 (%s): %d\n", nomecidade2, pontosturisticos2);
         if (pontosturisticos > pontosturisticos2){
-            printf("*** Carta 1 venceu! ***\n"); atributo1 = 1;}
+            printf("*** Carta 1 venceu! ***\n"); atributo2 = 1;}
         else if (pontosturisticos2 > pontosturisticos){
-            printf("*** Carta 2 venceu! ***\n"); atributo1 = 2;}
+            printf("*** Carta 2 venceu! ***\n"); atributo2 = 2;}
         else {
-            printf("*** Empate! ***\n"); atributo1 = 0;}
+            printf("*** Empate! ***\n"); atributo2 = 0;}
         break;
 
     case 5: // Densidade populacional (menor vence)
@@ -319,11 +326,11 @@ switch (escolha2) {
         printf("Carta 1 (%s): %.2lf\n", nomecidade, densidade_pop_c1);
         printf("Carta 2 (%s): %.2lf\n", nomecidade2, densidade_pop_c2);
         if (densidade_pop_c1 < densidade_pop_c2){
-            printf("*** Carta 1 venceu! ***\n"); atributo1 = 1;}
+            printf("*** Carta 1 venceu! ***\n"); atributo2 = 1;}
         else if (densidade_pop_c2 < densidade_pop_c1){
-            printf("*** Carta 2 venceu! ***\n"); atributo1 = 2;}
+            printf("*** Carta 2 venceu! ***\n"); atributo2 = 2;}
         else {
-            printf("*** Empate! ***\n"); atributo1 = 0;}
+            printf("*** Empate! ***\n"); atributo2 = 0;}
         break;
 
     case 6: // PIB per capita
@@ -331,11 +338,11 @@ switch (escolha2) {
         printf("Carta 1 (%s): %.2lf\n", nomecidade, pibpercapita);
         printf("Carta 2 (%s): %.2lf\n", nomecidade2, pibpercapita2);
         if (pibpercapita > pibpercapita2){
-            printf("*** Carta 1 venceu! ***\n"); atributo1 = 1;}
+            printf("*** Carta 1 venceu! ***\n"); atributo2 = 1;}
         else if (pibpercapita2 > pibpercapita){
-            printf("*** Carta 2 venceu! ***\n"); atributo1 = 2;}
+            printf("*** Carta 2 venceu! ***\n"); atributo2 = 2;}
         else{
-            printf("*** Empate! ***\n"); atributo1 = 0;}
+            printf("*** Empate! ***\n"); atributo2 = 0;}
         break;
 
     case 7: // Super Poder
@@ -343,11 +350,11 @@ switch (escolha2) {
         printf("Carta 1 (%s): %.2lf\n", nomecidade, superpoder);
         printf("Carta 2 (%s): %.2lf\n", nomecidade2, superpoder2);
         if (superpoder > superpoder2){
-            printf("*** Carta 1 venceu!***\n"); atributo1 = 1;}
+            printf("*** Carta 1 venceu!***\n"); atributo2 = 1;}
         else if (superpoder2 > superpoder){
-            printf("***Carta 2 venceu!***\n"); atributo1 = 2;}
+            printf("***Carta 2 venceu!***\n"); atributo2 = 2;}
         else{
-            printf("*** Empate! ***\n"); atributo1 = 0;}
+            printf("*** Empate! ***\n"); atributo2 = 0;}
         break;
 
     default:
@@ -357,15 +364,31 @@ switch (escolha2) {
     
 
 
+    int pontos_cartas1 = 0;
+    int pontos_cartas2 = 0;
+    
+    if (atributo1 == 1){
+        pontos_cartas1++;
+    }else if (atributo1 == 2){
+        pontos_cartas2++;
+    } 
+    if (atributo2 == 1){
+        pontos_cartas1++;
+    }else if (atributo2 == 2){
+        pontos_cartas2++;
+    }
+    
+    printf ("Resultado da RODADA!!!\n");
+
+    if(pontos_cartas1 == 2){
+        printf("Vencedor da Rodada: %s!\n", nomecidade);
+    }else if (pontos_cartas2 == 2){
+        printf("Vencedor da Rodada: %s!\n", nomecidade2);
+    }else {
+        printf("Resultado da Rodada: Empate!\n");
+    }
 
     
-    if (escolha && escolha2){
-        printf("Voce ganhou!");
-    }else if (escolha != escolha2){
-        printf("Empatou!");
-    }else {
-        printf("Voce perdeu!");
-    }
     
     
 
